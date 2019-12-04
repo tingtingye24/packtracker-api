@@ -4,9 +4,10 @@ class Tracking < ApplicationRecord
 
     def self.trackingScraper(trackings)
         newTracking = trackings.map do |tracking|
-            obj = {id: tracking.id, carrier: tracking.carrier.name, name: tracking.name,carrier_url: tracking.carrier.tracking_url + tracking.tracking_number, tracking_number: tracking.tracking_number, activities: [], logo: tracking.carrier.logo}
+            trackingCarrier = tracking.carrier
+            obj = {id: tracking.id, carrier: trackingCarrier.name, name: tracking.name, carrier_url: trackingCarrier.tracking_url + tracking.tracking_number, tracking_number: tracking.tracking_number, activities: [], logo: trackingCarrier.logo}
             # tracking["activies"] = []
-            carriername = tracking.carrier.name.split(" ").map{ |word| word.downcase}.join("")
+            carriername = trackingCarrier.name.split(" ").map{ |word| word.downcase}.join("")
             url = "http://shipit-api.herokuapp.com/api/carriers/#{carriername}/#{tracking.tracking_number}"
             # url = "http://shipit-api.herokuapp.com/api/carriers/usps/EG2523016"
             unparsed_page = HTTParty.get(url)
