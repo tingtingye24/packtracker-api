@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_11_19_152326) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carriers", force: :cascade do |t|
     t.string "name"
     t.string "tracking_url"
