@@ -17,7 +17,7 @@ dhl = Carrier.create(name: "DHL" , tracking_url: "https://www.dhl.com/en/express
 
 
 
-user1 = User.create(username: "Amber", password_digest: "123")
+user1 = User.create(username: "Amber", password: "123")
 
 Tracking.create(user_id: user1.id, tracking_number: "1LS717760706085", carrier_id: lasership.id, name: "Urban Outfitter")
 Tracking.create(user_id: user1.id, tracking_number: "789707961520", carrier_id: fedex.id, name: "Claire's FEDEX")

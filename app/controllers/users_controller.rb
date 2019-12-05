@@ -6,12 +6,12 @@ class UsersController < ApplicationController
     end
 
     def login
-        user = User.find_by(username: params[:username], password_digest: params[:password])
+        user = User.find_by(username: params[:username], password: params[:password])
         render json: user
     end
 
     def signup
-       user = User.new(username: params[:username], password_digest: params[:password_digest])
+       user = User.new(username: params[:username], password: params[:password_digest])
        if user.save
         render json: user
        else
