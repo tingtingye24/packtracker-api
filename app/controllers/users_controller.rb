@@ -6,16 +6,19 @@ class UsersController < ApplicationController
     end
 
     def login
+        
         user = User.find_by(username: params[:username])
-        if user && user.authenticate(password: params[:password])
+        # byebug
+        if user && user.authenticate(params[:password])
             render json: user
         else
-            render json: nothing
+            render json: {error: "incorrect"}
         end
     end
 
     def signup
        user = User.new(username: params[:username], password: params[:password_digest])
+    #    byebug
        if user.save
         render json: user
        else
