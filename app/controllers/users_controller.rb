@@ -6,8 +6,12 @@ class UsersController < ApplicationController
     end
 
     def login
-        user = User.find_by(username: params[:username], password: params[:password])
-        render json: user
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(password: params[:password])
+            render json: user
+        else
+            render json: nothing
+        end
     end
 
     def signup
