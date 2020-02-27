@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ABOUT
+- This is an RESTFUL API that consists of Users, Tracking Number, and Carrier
+- It is made to keep data submited from the frontend and store it for future access.
+- Nokogiri was used to crawl website with details about the package
+- Bcrypt was used to authenticate users.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
